@@ -1,11 +1,11 @@
 // Math Operation Functions
 
-function suma ((a, b) => a + b);
-function resta ((a, b) => a - b);
-function multi ((a, b) => a * b);
-function divi ((a, b) => a / b);
-function perce ((a) => a / 100);
-function sign ((a) => a * (-1));
+const suma = (a, b) => a + b;
+const resta = (a, b) => a - b;
+const multi = (a, b) => a * b;
+const divi = (a, b) => a / b;
+const perce = a => a / 100;
+const sign = a => a * (-1);
 
 //Operation function
 
