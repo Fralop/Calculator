@@ -3,7 +3,11 @@
 const suma = (a, b) => a + b;
 const resta = (a, b) => a - b;
 const multi = (a, b) => a * b;
-const divi = (a, b) => a / b;
+function divi (a, b) {
+    if (b !== 0) {
+        return (a / b);
+    } else return "Error";    
+}
 const perce = a => a / 100;
 const sign = a => a * (-1);
 
@@ -11,7 +15,7 @@ const sign = a => a * (-1);
 
 function operate (a, op, b) {
     let result = 0;
-    switch op {
+    switch (op) {
         case "+":
             result = suma (a, b);
         break;
