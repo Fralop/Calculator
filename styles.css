@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container, .display, .row, button {
+    border: 1px solid black;
+}
+
+.container  {
+    min-height: 92.8vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.diplay {
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    flex: 1 1 auto;
+}
+
+button {
+    border: 1px solid black;
+}
+
+.other {
+    background-color: cadetblue;
+}
+
+.ope {
+    background-color: orange;
+}
+
+.num {
+    background-color: green;
+}
