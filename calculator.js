@@ -12,7 +12,10 @@ const perce = a => a / 100;
 const sign = a => a * (-1);
 
 //Operation function
-
+let op = 0;
+let a = 0;
+let b = 0;
+let finalResult = 0;
 function operate (a, op, b) {
     let result = 0;
     switch (op) {
@@ -37,3 +40,50 @@ function operate (a, op, b) {
     }
     return result;
 }
+
+const container = document.querySelector('.container');
+const buttons = document.querySelectorAll('button');
+const display = document.querySelector('.display')
+buttons.forEach((button) => {
+    button.addEventListener('click', clickEffect);
+})
+
+let clicks = [];
+function clickEffect (e) {
+    switch (e.target.classList[0]) {
+        case "num":
+            clicks.push(e.target.textContent);
+            display.textContent = Number(clicks.join(''));
+            console.log(e.target.classList[0]);
+            console.log(clicks);
+            console.log(a);
+            console.log(b);
+            console.log(op);
+        break;
+        case "ope":
+            if (finalResult === 0) {
+               a = Number(clicks.join(''));
+            } else a = finalResult;
+            op = e.target.textContent
+            clicks = [];
+            console.log(e.target.classList[0]);
+            console.log(clicks);
+            console.log(a);
+            console.log(b);
+            console.log(op);
+        break;
+        case "igual":
+            b = Number(clicks.join(''));
+            finalResult = operate (a, op, b);
+            clicks = [];
+            display.textContent = finalResult;
+            console.log(e.target.classList[0]);
+            console.log(clicks);
+            console.log(a);
+            console.log(b);
+            console.log(op);
+            console.log(finalResult);
+        break;
+    }
+}
+console.table(a, op, b);

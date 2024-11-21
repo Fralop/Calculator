@@ -27,7 +27,6 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
-    /*flex: 1 1 auto;*/
 }
 
 .display {
@@ -54,7 +53,7 @@ button {
     background-color: cadetblue;
 }
 
-.ope {
+.ope, .igual {
     background-color: orange;
 }
 
