@@ -8,35 +8,46 @@
     min-height: 100vh;
 }
 
-.container, .display, .row, button {
-    border: 1px solid black;
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.display, .row, button {
+    border: 0.5px solid black;
 }
 
 .container  {
-    width: 500px
-    margin: 0px
+    border: 2px solid black;
+    margin-top: 70px;
+    margin-left: 520px;
+    width: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    justify-content: space-between;
+    align-items: stretch;
+    /*flex: 1 1 auto;*/
 }
 
-.diplay {
-
+.display {
+    text-align: right;
+    font-size: 70px;
+    background-color: lightgrey;
 }
 
 .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    align-content: center;
-    flex: 1 1 auto;
+    align-items: stretch;
+    flex: 1 1 auto
 }
 
 button {
     border: 1px solid black;
+    font-size: 30px;
+    flex: 1 1 auto;
 }
 
 .other {
