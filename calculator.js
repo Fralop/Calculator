@@ -41,7 +41,7 @@ function operate (a, op, b) {
             result = sign (a);
         break;
     }
-    return result;
+    return result.toFixed(2);
 }
 
 const container = document.querySelector('.container');
@@ -126,3 +126,6 @@ function clickEffect (e) {
         break
     }
 }
+
+//multiple =s
+//one sign, then changed my mine
