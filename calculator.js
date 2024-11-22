@@ -128,5 +128,7 @@ function clickEffect (e) {
 }
 
 //multiple =s
-//one sign, then changed my mine
+//one operator, then changed my mine
 //multiple percentage with first number
+//signed mixed with percentaes.
+//change the +- sign in a finalresult !!
