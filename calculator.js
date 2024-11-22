@@ -123,8 +123,6 @@ function clickEffect (e) {
                 percentage = Number(clicks.join('')) / 100;
             }
             display.textContent = percentage;
-            console.log(percentage);
-            console.log(finalResult);
         break
     }
 }
