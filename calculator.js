@@ -118,6 +118,14 @@ function clickEffect (e) {
             clicks = [];
             display.textContent = finalResult;
         break;
-        //case ""
+        case "sign":
+            if (clicks[0]=== "-") {
+                clicks.shift()
+                display.textContent = Number(clicks.join(''));
+            } else {
+                clicks.unshift("-");
+                display.textContent = Number(clicks.join(''));
+            }
+        break
     }
 }
