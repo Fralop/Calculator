@@ -61,12 +61,6 @@ function clickEffect (e) {
             }
             clicks.push(e.target.textContent);
             display.textContent = Number(clicks.join(''));
-            console.log(e.target.classList[0]);
-            console.log(clicks);
-            console.log(a);
-            console.log(b);
-            console.log(op);
-            console.log(percentage);
         break;
         case "ope":
             opCounter++
@@ -79,14 +73,6 @@ function clickEffect (e) {
                 op = e.target.textContent
                 clicks = [];
                 percentage = 0;
-                console.log(e.target.classList[0]);
-                console.log(clicks);
-                console.log(a);
-                console.log(b);
-                console.log(op);
-                console.log(finalResult);
-                console.log(percentage);
-
             } else {
                 if (percentage === 0) {
                     b = Number(clicks.join(''));
@@ -96,13 +82,6 @@ function clickEffect (e) {
                 clicks = [];
                 percentage = 0;
                 display.textContent = finalResult;
-                console.log(e.target.classList[0]);
-                console.log(clicks);
-                console.log(a);
-                console.log(b);
-                console.log(op);
-                console.log(finalResult);
-                console.log(percentage);
             }
         break;
         case "igual":
@@ -114,13 +93,6 @@ function clickEffect (e) {
             percentage = 0;
             display.textContent = finalResult;
             opCounter = 0;
-            console.log(e.target.classList[0]);
-            console.log(clicks);
-            console.log(a);
-            console.log(b);
-            console.log(op);
-            console.log(finalResult);
-            console.log(percentage);
         break;
         case "AC":
             op = 0;
@@ -142,13 +114,9 @@ function clickEffect (e) {
             }
         break
         case "perce":
-            if (opCounter === 0) {
-                if (finalResult === 0) {    
-                    percentage = Number(clicks.join('')) / 100;    
-                } else {
-                    percentage = finalResult / 100;
-                }
-            } else percentage  = Number(clicks.join('') / 100);
+            if (finalResult !== 0 && opCounter === 0) {
+                percentage = finalResult / 100;
+            } else percentage = Number(clicks.join('')) / 100;
             display.textContent = percentage;
             console.log(percentage);
             console.log(finalResult);
