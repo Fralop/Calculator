@@ -18,6 +18,7 @@ let b = 0;
 let finalResult = 0;
 let opCounter = 0;
 let tempOp = 0;
+let percentage = 0;
 function operate (a, op, b) {
     let result = 0;
     switch (op) {
@@ -65,27 +66,35 @@ function clickEffect (e) {
             console.log(a);
             console.log(b);
             console.log(op);
+            console.log(percentage);
         break;
         case "ope":
             opCounter++
             if (opCounter < 2) {
-                if (finalResult === 0) {
-                a = Number(clicks.join(''));
-                } else a = finalResult;
+                if (percentage === 0) {
+                    if (finalResult === 0) {
+                        a = Number(clicks.join(''));
+                    } else a = finalResult;
+                } else a = percentage;
                 op = e.target.textContent
                 clicks = [];
+                percentage = 0;
                 console.log(e.target.classList[0]);
                 console.log(clicks);
                 console.log(a);
                 console.log(b);
                 console.log(op);
                 console.log(finalResult);
+                console.log(percentage);
 
             } else {
-                b = Number(clicks.join(''));
+                if (percentage === 0) {
+                    b = Number(clicks.join(''));
+                } else b = percentage
                 finalResult = operate (a, op, b);
                 tempOp = e.target.textContent;
                 clicks = [];
+                percentage = 0;
                 display.textContent = finalResult;
                 console.log(e.target.classList[0]);
                 console.log(clicks);
@@ -93,13 +102,16 @@ function clickEffect (e) {
                 console.log(b);
                 console.log(op);
                 console.log(finalResult);
-
+                console.log(percentage);
             }
         break;
         case "igual":
-            b = Number(clicks.join(''));
+            if (percentage === 0) {
+                b = Number(clicks.join(''));
+            } else b = percentage
             finalResult = operate (a, op, b);
             clicks = [];
+            percentage = 0;
             display.textContent = finalResult;
             opCounter = 0;
             console.log(e.target.classList[0]);
@@ -108,6 +120,7 @@ function clickEffect (e) {
             console.log(b);
             console.log(op);
             console.log(finalResult);
+            console.log(percentage);
         break;
         case "AC":
             op = 0;
@@ -116,6 +129,7 @@ function clickEffect (e) {
             finalResult = 0;
             opCounter = 0;
             clicks = [];
+            percentage = 0;
             display.textContent = finalResult;
         break;
         case "sign":
@@ -126,6 +140,18 @@ function clickEffect (e) {
                 clicks.unshift("-");
                 display.textContent = Number(clicks.join(''));
             }
+        break
+        case "perce":
+            if (opCounter === 0) {
+                if (finalResult === 0) {    
+                    percentage = Number(clicks.join('')) / 100;    
+                } else {
+                    percentage = finalResult / 100;
+                }
+            } else percentage  = Number(clicks.join('') / 100);
+            display.textContent = percentage;
+            console.log(percentage);
+            console.log(finalResult);
         break
     }
 }
