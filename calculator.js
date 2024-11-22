@@ -118,5 +118,6 @@ function clickEffect (e) {
             clicks = [];
             display.textContent = finalResult;
         break;
+        //case ""
     }
 }
