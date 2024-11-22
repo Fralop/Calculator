@@ -21,6 +21,7 @@ let tempOp = 0;
 let percentage = 0;
 function operate (a, op, b) {
     let result = 0;
+    let limitedResult = 0;
     switch (op) {
         case "+":
             result = suma (a, b);
@@ -41,7 +42,8 @@ function operate (a, op, b) {
             result = sign (a);
         break;
     }
-    return result.toFixed(2);
+    limitedResult = Math.round(result * 100) / 100;
+    return limitedResult;
 }
 
 const container = document.querySelector('.container');
