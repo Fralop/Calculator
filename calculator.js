@@ -52,7 +52,7 @@ buttons.forEach((button) => {
 
 let clicks = [];
 function clickEffect (e) {
-    switch (e.target.classList[0]) {
+    switch (e.target.classList[0]) { 
         case "num":
             if (finalResult !== 0 && opCounter >= 2) {
                 a = finalResult;
