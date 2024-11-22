@@ -117,7 +117,7 @@ function clickEffect (e) {
         break
         case "perce":
             if (finalResult !== 0 && opCounter === 0) {
-                percentage = finalResult / 100;
+                percentage = Math.round(finalResult) / 100;
                 finalResult = percentage;
             } else {
                 percentage = Number(clicks.join('')) / 100;
@@ -129,3 +129,4 @@ function clickEffect (e) {
 
 //multiple =s
 //one sign, then changed my mine
+//multiple percentage with first number
