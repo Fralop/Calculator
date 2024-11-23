@@ -1,18 +1,34 @@
-// Math Operation Functions
+// Math Operation Functions including protection to change-of-mind operations
 
-const suma = (a, b) => a + b;
-const resta = (a, b) => a - b;
+const suma = (a, b) => {
+    if (clicks.length !== 0) {
+        return a + b;
+    } else if (finalResult !== 0) {
+        return finalResult;
+    } else return a;
+} 
+const resta = (a, b) => {
+    if (clicks.length !== 0) {
+        return a - b;
+    } else if (finalResult !== 0) {
+        return finalResult;
+    } else return a;
+} 
 const multi = (a, b) => {
     if (clicks.length !== 0) {
         return a * b;
-    } return a;
+    } else if (finalResult !== 0) {
+        return finalResult;
+    } else return a;
 }
 function divi (a, b) {
     if (clicks.length !== 0) {
         if (b !== 0) {
             return (a / b);
         } else return "Error";
-    } return a;    
+    } else if (finalResult !== 0) {
+        return finalResult;
+    } else return a;   
 }
 const perce = a => a / 100;
 const sign = a => a * (-1);
@@ -52,13 +68,15 @@ function operate (a, op, b) {
     limitedResult = Math.round(result * 1000) / 1000;
     return limitedResult;
 }
-
+// DOM manipulation
 const container = document.querySelector('.container');
 const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display')
 buttons.forEach((button) => {
     button.addEventListener('click', clickEffect);
 })
+
+// Function logic
 
 let clicks = [];
 function clickEffect (e) {
@@ -120,13 +138,24 @@ function clickEffect (e) {
             display.textContent = finalResult;
         break;
         case "sign":
-            if (clicks[0]=== "-") {
-                clicks.shift()
-                display.textContent = Number(clicks.join(''));
+            if (percentage === 0) {
+                if (clicks.length !==0) {
+                    if (clicks[0]=== "-") {
+                        clicks.shift()
+                        display.textContent = Number(clicks.join(''));
+                    } else {
+                        clicks.unshift("-");
+                        display.textContent = Number(clicks.join(''));
+                    }
+                } else {
+                    finalResult = finalResult * (-1);
+                    display.textContent = finalResult;
+                }
             } else {
-                clicks.unshift("-");
-                display.textContent = Number(clicks.join(''));
+                percentage = percentage * (-1)
+                display.textContent = percentage;
             }
+
         break
         case "perce":
             if (finalResult !== 0 && opCounter === 0) {
@@ -139,7 +168,4 @@ function clickEffect (e) {
         break
     }
 }
-
-//signed mixed with percentaes.
-//change the +- sign in a finalresult !!
 //CSS: shadow of operator
