@@ -49,7 +49,7 @@ function operate (a, op, b) {
             result = sign (a);
         break;
     }
-    limitedResult = Math.round(result * 100) / 100;
+    limitedResult = Math.round(result * 1000) / 1000;
     return limitedResult;
 }
 
@@ -130,7 +130,7 @@ function clickEffect (e) {
         break
         case "perce":
             if (finalResult !== 0 && opCounter === 0) {
-                percentage = Math.round(finalResult) / 100;
+                percentage = Math.round(finalResult * 10) / 1000;
             } else {
                 percentage = Number(clicks.join('')) / 100;
             }
