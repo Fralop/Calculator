@@ -118,10 +118,10 @@ function clickEffect (e) {
         case "perce":
             if (finalResult !== 0 && opCounter === 0) {
                 percentage = Math.round(finalResult) / 100;
-                finalResult = percentage;
             } else {
                 percentage = Number(clicks.join('')) / 100;
             }
+            finalResult = percentage;
             display.textContent = percentage;
         break
     }
