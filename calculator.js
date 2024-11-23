@@ -65,7 +65,9 @@ function operate (a, op, b) {
             result = sign (a);
         break;
     }
-    limitedResult = Math.round(result * 1000) / 1000;
+    if (result === "Error") {
+        return "Error! No x/0"
+    } else limitedResult = Math.round(result * 1000) / 1000;
     return limitedResult;
 }
 // DOM manipulation
