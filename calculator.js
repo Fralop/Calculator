@@ -73,7 +73,8 @@ function operate (a, op, b) {
 // DOM manipulation
 const container = document.querySelector('.container');
 const buttons = document.querySelectorAll('button');
-const display = document.querySelector('.display')
+const display = document.querySelector('.display');
+const btnPunto = document.querySelector('.punto');
 buttons.forEach((button) => {
     button.addEventListener('click', clickEffect);
 })
@@ -93,6 +94,7 @@ function clickEffect (e) {
             display.textContent = Number(clicks.join(''));
         break;
         case "ope":
+            btnPunto.addEventListener('click', clickEffect);    
             opCounter++
             igualCounter = 0;
             if (opCounter < 2) {
@@ -138,6 +140,7 @@ function clickEffect (e) {
             clicks = [];
             percentage = 0;
             display.textContent = finalResult;
+            btnPunto.addEventListener('click', clickEffect);
         break;
         case "sign":
             if (percentage === 0) {
@@ -167,6 +170,14 @@ function clickEffect (e) {
             }
             finalResult = percentage;
             display.textContent = percentage;
+        break
+        case "punto":
+            if (clicks.length === 0) {
+                clicks.push('0');
+            }
+            clicks.push(e.target.textContent);
+            display.textContent = clicks.join('');
+            btnPunto.removeEventListener('click', clickEffect);
         break
     }
 }
