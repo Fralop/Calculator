@@ -2,11 +2,17 @@
 
 const suma = (a, b) => a + b;
 const resta = (a, b) => a - b;
-const multi = (a, b) => a * b;
+const multi = (a, b) => {
+    if (clicks.length !== 0) {
+        return a * b;
+    } return a;
+}
 function divi (a, b) {
-    if (b !== 0) {
-        return (a / b);
-    } else return "Error";    
+    if (clicks.length !== 0) {
+        if (b !== 0) {
+            return (a / b);
+        } else return "Error";
+    } return a;    
 }
 const perce = a => a / 100;
 const sign = a => a * (-1);
@@ -134,7 +140,6 @@ function clickEffect (e) {
     }
 }
 
-//one operator, then changed my mine
 //signed mixed with percentaes.
 //change the +- sign in a finalresult !!
 //CSS: shadow of operator
