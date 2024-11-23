@@ -50,8 +50,9 @@ button {
     flex: 1 1 auto;
 }
 
-.other, .AC {
+.back, .AC {
     background-color: cadetblue;
+    font-size: 25px;
 }
 
 .ope, .igual {

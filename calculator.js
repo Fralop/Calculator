@@ -182,3 +182,7 @@ function clickEffect (e) {
     }
 }
 //CSS: shadow of operator
+//Reactivate . after =??
+//Backspace
+//Keyboard support
+//Merge branch
