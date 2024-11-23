@@ -129,7 +129,6 @@ function clickEffect (e) {
 
 //multiple =s
 //one operator, then changed my mine
-//multiple percentage with first number
 //signed mixed with percentaes.
 //change the +- sign in a finalresult !!
 //CSS: shadow of operator
