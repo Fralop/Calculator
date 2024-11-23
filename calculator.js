@@ -19,6 +19,7 @@ let finalResult = 0;
 let opCounter = 0;
 let tempOp = 0;
 let percentage = 0;
+let igualCounter = 0;
 function operate (a, op, b) {
     let result = 0;
     let limitedResult = 0;
@@ -57,6 +58,7 @@ let clicks = [];
 function clickEffect (e) {
     switch (e.target.classList[0]) { 
         case "num":
+            igualCounter = 0;
             if (finalResult !== 0 && opCounter >= 2) {
                 a = finalResult;
                 op = tempOp;
@@ -66,6 +68,7 @@ function clickEffect (e) {
         break;
         case "ope":
             opCounter++
+            igualCounter = 0;
             if (opCounter < 2) {
                 if (percentage === 0) {
                     if (finalResult === 0) {
@@ -87,16 +90,20 @@ function clickEffect (e) {
             }
         break;
         case "igual":
-            if (percentage === 0) {
-                b = Number(clicks.join(''));
-            } else b = percentage
-            finalResult = operate (a, op, b);
-            clicks = [];
-            percentage = 0;
-            display.textContent = finalResult;
-            opCounter = 0;
+            igualCounter++
+            if (igualCounter < 2) {
+                if (percentage === 0) {
+                    b = Number(clicks.join(''));
+                } else b = percentage
+                finalResult = operate (a, op, b);
+                clicks = [];
+                percentage = 0;
+                display.textContent = finalResult;
+                opCounter = 0;
+            }
         break;
         case "AC":
+            igualCounter = 0;
             op = 0;
             a = 0;
             b = 0;
@@ -127,7 +134,6 @@ function clickEffect (e) {
     }
 }
 
-//multiple =s
 //one operator, then changed my mine
 //signed mixed with percentaes.
 //change the +- sign in a finalresult !!
