@@ -5,8 +5,12 @@
     background-color: grey;
 }
 
-.body {
-    min-height: 100vh;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/
 }
 
 h1 {
@@ -25,13 +29,13 @@ h1 {
 .container  {
     border: 10px double black;
     margin-top: 50px;
-    margin-left: 520px;
     width: 400px;
     height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: stretch;
+    flex: 1 1 auto;
 }
 
 .display {
@@ -45,7 +49,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-    flex: 1 1 auto
+    flex: 1 1 auto;
 }
 
 button {
