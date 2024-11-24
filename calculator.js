@@ -179,10 +179,19 @@ function clickEffect (e) {
             display.textContent = clicks.join('');
             btnPunto.removeEventListener('click', clickEffect);
         break
+        case "back":
+            if (clicks.length > 1) {
+                clicks.pop();
+                display.textContent = clicks.join('');
+            } else {  
+                finalResult = 0;
+                display.textContent = finalResult;
+                clicks = [];
+            }
+        break
     }
 }
 //CSS: shadow of operator
 //Reactivate . after =??
-//Backspace
 //Keyboard support
 //Merge branch
