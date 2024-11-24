@@ -192,6 +192,5 @@ function clickEffect (e) {
     }
 }
 //CSS: shadow of operator
-//Reactivate . after =??
 //Keyboard support
 //Merge branch
