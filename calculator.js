@@ -239,10 +239,21 @@ body.addEventListener('keydown', key);
 body.addEventListener('keydown', colorKey);
 body.addEventListener('keyup', uncolorKey);
 
-//Color with Keyboar support
+//Color with Keyboard support
 function colorKey (e) {
     console.log(e.key);
-    const targetButton = Array.from(buttons).find(button => button.textContent === e.key);
+    let eKey = e.key;
+    if (e.key == "Backspace") {
+        eKey = "Back";
+    }
+    if (e.key == "Escape") {
+        eKey = "AC";
+    }
+    if (e.key == "Enter") {
+        eKey = "=";
+    }
+    console.log(eKey);
+    const targetButton = Array.from(buttons).find(button => button.textContent === eKey);
     console.log(targetButton);
     switch (targetButton.textContent) {
       case "1":
@@ -262,7 +273,7 @@ function colorKey (e) {
       case "*":
       case "-":
       case "+":
-      case "=":
+      case "=":  
             targetButton.id = "pressedOpe";
       break;
       case "AC":
@@ -276,8 +287,19 @@ function colorKey (e) {
     }
 }
 
+// Uncolor keyboard support
 function uncolorKey (e) {
-    const targetButton = Array.from(buttons).find(button => button.textContent === e.key);
+    let eKey = e.key;
+    if (e.key == "Backspace") {
+        eKey = "Back";
+    }
+    if (e.key == "Escape") {
+        eKey = "AC";
+    }
+    if (e.key == "Enter") {
+        eKey = "=";
+    }
+    const targetButton = Array.from(buttons).find(button => button.textContent === eKey);
     targetButton.id = "";
 }
 
