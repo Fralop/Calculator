@@ -1,5 +1,4 @@
 // Math Operation Functions including protection to change-of-mind operations
-
 const suma = (a, b) => {
     if (clicks.length !== 0) {
         return a + b;
@@ -197,10 +196,6 @@ function clickEffect (e) {
         break
     }
 }
-//CSS: shadow of operator
-//Keyboard support
-//Merge branch
-
 
 //Keyboard support
 const body = document.querySelector("body");
