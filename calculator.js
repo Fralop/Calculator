@@ -33,7 +33,7 @@ function divi (a, b) {
 const perce = a => a / 100;
 const sign = a => a * (-1);
 
-//Operation function
+//Global variables definition
 let op = 0;
 let a = 0;
 let b = 0;
@@ -42,6 +42,9 @@ let opCounter = 0;
 let tempOp = 0;
 let percentage = 0;
 let igualCounter = 0;
+let clicks = [];
+
+// Operation function
 function operate (a, op, b) {
     let result = 0;
     let limitedResult = 0;
@@ -70,6 +73,7 @@ function operate (a, op, b) {
     } else limitedResult = Math.round(result * 1000) / 1000;
     return limitedResult;
 }
+
 // DOM manipulation
 const container = document.querySelector('.container');
 const buttons = document.querySelectorAll('button');
@@ -79,9 +83,7 @@ buttons.forEach((button) => {
     button.addEventListener('click', clickEffect);
 })
 
-// Function logic
-
-let clicks = [];
+// Function logic with buttons
 function clickEffect (e) {
     switch (e.target.classList[0]) { 
         case "num":
@@ -202,5 +204,126 @@ body.addEventListener('keydown', key);
 
 function key (e) {
     console.log(e.key);
-    console.log(e.code)
+    console.log(e.code);
+    switch (e.key) { 
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+        case "6":
+        case "7":
+        case "8":
+        case "9":
+        case "0":    
+            igualCounter = 0;
+            if (finalResult !== 0 && opCounter >= 2) {
+                a = finalResult;
+                op = tempOp;
+            }
+            clicks.push(e.key);
+            display.textContent = Number(clicks.join(''));
+        break;
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            btnPunto.addEventListener('click', clickEffect);    
+            opCounter++
+            igualCounter = 0;
+            if (opCounter < 2) {
+                if (percentage === 0) {
+                    if (finalResult === 0) {
+                        a = Number(clicks.join(''));
+                    } else a = finalResult;
+                } else a = percentage;
+                op = e.key
+                clicks = [];
+                percentage = 0;
+            } else {
+                if (percentage === 0) {
+                    b = Number(clicks.join(''));
+                } else b = percentage
+                finalResult = operate (a, op, b);
+                tempOp = e.key;
+                clicks = [];
+                percentage = 0;
+                display.textContent = finalResult;
+            }
+        break;
+        case "=":
+        case "Enter":
+            igualCounter++
+            if (igualCounter < 2) {
+                if (percentage === 0) {
+                    b = Number(clicks.join(''));
+                } else b = percentage
+                finalResult = operate (a, op, b);
+                clicks = [];
+                percentage = 0;
+                display.textContent = finalResult;
+                opCounter = 0;
+            }
+        break;
+        case "Escape":
+            igualCounter = 0;
+            op = 0;
+            a = 0;
+            b = 0;
+            finalResult = 0;
+            opCounter = 0;
+            clicks = [];
+            percentage = 0;
+            display.textContent = finalResult;
+            btnPunto.addEventListener('click', clickEffect);
+        break;
+        case "±":
+            if (percentage === 0) {
+                if (clicks.length !==0) {
+                    if (clicks[0]=== "-") {
+                        clicks.shift()
+                        display.textContent = Number(clicks.join(''));
+                    } else {
+                        clicks.unshift("-");
+                        display.textContent = Number(clicks.join(''));
+                    }
+                } else {
+                    finalResult = finalResult * (-1);
+                    display.textContent = finalResult;
+                }
+            } else {
+                percentage = percentage * (-1)
+                display.textContent = percentage;
+            }
+
+        break
+        case "%":
+            if (finalResult !== 0 && opCounter === 0) {
+                percentage = Math.round(finalResult * 10) / 1000;
+            } else {
+                percentage = Number(clicks.join('')) / 100;
+            }
+            finalResult = percentage;
+            display.textContent = percentage;
+        break
+        case ".":
+            if (clicks.length === 0) {
+                clicks.push('0');
+            }
+            clicks.push(e.key);
+            display.textContent = clicks.join('');
+            btnPunto.removeEventListener('click', clickEffect);
+        break
+        case "Backspace":
+            if (clicks.length > 1) {
+                clicks.pop();
+                display.textContent = clicks.join('');
+            } else {  
+                finalResult = 0;
+                display.textContent = finalResult;
+                clicks = [];
+            }
+        break
+    }
+    
 }
