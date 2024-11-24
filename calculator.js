@@ -42,6 +42,7 @@ let opCounter = 0;
 let tempOp = 0;
 let percentage = 0;
 let igualCounter = 0;
+let periodCounter = 0;
 let clicks = [];
 
 // Operation function
@@ -96,6 +97,7 @@ function clickEffect (e) {
             display.textContent = Number(clicks.join(''));
         break;
         case "ope":
+            periodCounter = 0;
             btnPunto.addEventListener('click', clickEffect);    
             opCounter++
             igualCounter = 0;
@@ -142,6 +144,7 @@ function clickEffect (e) {
             clicks = [];
             percentage = 0;
             display.textContent = finalResult;
+            periodCounter = 0;
             btnPunto.addEventListener('click', clickEffect);
         break;
         case "sign":
@@ -174,6 +177,7 @@ function clickEffect (e) {
             display.textContent = percentage;
         break
         case "punto":
+            periodCounter++
             if (clicks.length === 0) {
                 clicks.push('0');
             }
@@ -204,7 +208,6 @@ body.addEventListener('keydown', key);
 
 function key (e) {
     console.log(e.key);
-    console.log(e.code);
     switch (e.key) { 
         case "1":
         case "2":
@@ -228,6 +231,7 @@ function key (e) {
         case "-":
         case "*":
         case "/":
+            periodCounter = 0;
             btnPunto.addEventListener('click', clickEffect);    
             opCounter++
             igualCounter = 0;
@@ -275,6 +279,7 @@ function key (e) {
             clicks = [];
             percentage = 0;
             display.textContent = finalResult;
+            periodCounter = 0;
             btnPunto.addEventListener('click', clickEffect);
         break;
         case "±":
@@ -307,12 +312,15 @@ function key (e) {
             display.textContent = percentage;
         break
         case ".":
-            if (clicks.length === 0) {
-                clicks.push('0');
+            periodCounter++
+            if (periodCounter < 2) {
+                if (clicks.length === 0) {
+                    clicks.push('0');
+                }
+                clicks.push(e.key);
+                display.textContent = clicks.join('');
+                btnPunto.removeEventListener('click', clickEffect);
             }
-            clicks.push(e.key);
-            display.textContent = clicks.join('');
-            btnPunto.removeEventListener('click', clickEffect);
         break
         case "Backspace":
             if (clicks.length > 1) {
