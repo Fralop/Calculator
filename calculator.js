@@ -71,7 +71,7 @@ function operate (a, op, b) {
     if (result === "Error") {
         return "Error! x/0"
     } 
-    if (result > 99999999999) {
+    if (result > 99999999999 || result < -9999999999) {
         return "Too long!"
     }
     limitedResult = Math.round(result * 1000) / 1000;
