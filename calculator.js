@@ -237,6 +237,7 @@ function clickEffect (e) {
 const body = document.querySelector("body");
 body.addEventListener('keydown', key);
 body.addEventListener('keydown', colorKey);
+body.addEventListener('keyup', uncolorKey);
 
 //Color with Keyboar support
 function colorKey (e) {
@@ -275,6 +276,10 @@ function colorKey (e) {
     }
 }
 
+function uncolorKey (e) {
+    const targetButton = Array.from(buttons).find(button => button.textContent === e.key);
+    targetButton.id = "";
+}
 
 //logic for Keyboard support
 function key (e) {
