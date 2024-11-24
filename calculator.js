@@ -78,7 +78,7 @@ function operate (a, op, b) {
     return limitedResult;
 }
 
-// DOM manipulation
+// DOM manipulation.
 const container = document.querySelector('.container');
 const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
