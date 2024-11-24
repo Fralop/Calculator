@@ -86,3 +86,8 @@ button {
 #pressedPerce {
     background-color: lightgray;
 }
+
+footer {
+    margin-top: 70px;
+    font-size: medium;
+}
