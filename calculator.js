@@ -197,4 +197,10 @@ function clickEffect (e) {
 
 
 //Keyboard support
+const body = document.querySelector("body");
+body.addEventListener('keydown', key);
 
+function key (e) {
+    console.log(e.key);
+    console.log(e.code)
+}
