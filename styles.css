@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: darkslategray;
+    background-color: grey;
 }
 
 .body {
@@ -11,16 +11,20 @@
 
 h1 {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    font-family: fantasy;
+    font-size: 40px;
+    font-weight: bolder;
+    border-bottom: 1px solid black;
 }
 
 .display, .row, button {
-    border: 0.5px solid black;
+    border: 1px solid black;
 }
 
 .container  {
-    border: 2px solid black;
-    margin-top: 70px;
+    border: 10px double black;
+    margin-top: 50px;
     margin-left: 520px;
     width: 400px;
     height: 500px;
