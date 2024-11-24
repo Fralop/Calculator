@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*min-height: 100vh;*/
 }
 
 h1 {
@@ -55,7 +54,7 @@ h1 {
 button {
     border: 1px solid black;
     font-size: 30px;
-    flex: 1 1 auto;
+    flex: 1 1 0;
 }
 
 .back, .AC {
