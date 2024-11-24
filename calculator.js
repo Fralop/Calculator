@@ -202,7 +202,6 @@ const body = document.querySelector("body");
 body.addEventListener('keydown', key);
 
 function key (e) {
-    console.log(e.key);
     switch (e.key) { 
         case "1":
         case "2":
