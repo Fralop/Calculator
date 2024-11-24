@@ -81,7 +81,43 @@ const display = document.querySelector('.display');
 const btnPunto = document.querySelector('.punto');
 buttons.forEach((button) => {
     button.addEventListener('click', clickEffect);
+    button.addEventListener('mousedown', colorButton);
+    button.addEventListener('mouseup', (e) => e.target.id = "");
 })
+
+//Coloring functions with buttons
+function colorButton (e) {
+    switch (e.target.textContent) {
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":  
+      case "7":
+      case "8":
+      case "9":
+      case "0":
+      case ".":
+            e.target.id = "pressedNum";
+      break;
+      case "/":
+      case "*":
+      case "-":
+      case "+":
+      case "=":
+            e.target.id = "pressedOpe";
+      break;
+      case "AC":
+      case "Back":
+            e.target.id = "pressedAC";
+      break;
+      case "%":
+      case "±":
+              e.target.id = "pressedPerce";
+      break;
+    }
+}
 
 // Function logic with buttons
 function clickEffect (e) {
@@ -200,7 +236,47 @@ function clickEffect (e) {
 //Keyboard support
 const body = document.querySelector("body");
 body.addEventListener('keydown', key);
+body.addEventListener('keydown', colorKey);
 
+//Color with Keyboar support
+function colorKey (e) {
+    console.log(e.key);
+    const targetButton = Array.from(buttons).find(button => button.textContent === e.key);
+    console.log(targetButton);
+    switch (targetButton.textContent) {
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":  
+      case "7":
+      case "8":
+      case "9":
+      case "0":
+      case ".":
+            targetButton.id = "pressedNum";
+      break;
+      case "/":
+      case "*":
+      case "-":
+      case "+":
+      case "=":
+            targetButton.id = "pressedOpe";
+      break;
+      case "AC":
+      case "Back":
+            targetButton.id = "pressedAC";
+      break;
+      case "%":
+      case "±":
+              targetButton.id = "pressedPerce";
+      break;
+    }
+}
+
+
+//logic for Keyboard support
 function key (e) {
     switch (e.key) { 
         case "1":

@@ -13,7 +13,7 @@ h1 {
     text-align: center;
     margin-top: 40px;
     font-family: fantasy;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: bolder;
     border-bottom: 1px solid black;
 }
@@ -65,4 +65,21 @@ button {
 
 .num, .punto {
     background-color: green;
+}
+
+#pressedNum {
+    background-color: lightgreen;
+}
+
+#pressedOpe {
+    background-color: yellow;
+
+}
+
+#pressedAC {
+    background-color: lightblue;
+}
+
+#pressedPerce {
+    background-color: lightgray;
 }
