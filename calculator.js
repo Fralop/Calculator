@@ -128,7 +128,9 @@ function clickEffect (e) {
                 a = finalResult;
                 op = tempOp;
             }
-            clicks.push(e.target.textContent);
+            if (clicks.length <= 10) {
+                clicks.push(e.target.textContent);
+            }
             display.textContent = Number(clicks.join(''));
         break;
         case "ope":
@@ -216,7 +218,9 @@ function clickEffect (e) {
             if (clicks.length === 0) {
                 clicks.push('0');
             }
-            clicks.push(e.target.textContent);
+            if (clicks.length <= 10) {
+                clicks.push(e.target.textContent);
+            }
             display.textContent = clicks.join('');
             btnPunto.removeEventListener('click', clickEffect);
         break
@@ -321,7 +325,9 @@ function key (e) {
                 a = finalResult;
                 op = tempOp;
             }
-            clicks.push(e.key);
+            if (clicks.length <= 10) {
+                clicks.push(e.key);
+            }
             display.textContent = Number(clicks.join(''));
         break;
         case "+":
@@ -414,7 +420,9 @@ function key (e) {
                 if (clicks.length === 0) {
                     clicks.push('0');
                 }
-                clicks.push(e.key);
+                if (clicks.length <= 10) {
+                    clicks.push(e.key);
+                }
                 display.textContent = clicks.join('');
                 btnPunto.removeEventListener('click', clickEffect);
             }
